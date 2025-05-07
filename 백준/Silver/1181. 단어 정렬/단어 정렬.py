@@ -14,11 +14,8 @@ for word in words:
         len_words[l] = list()
         len_words[l].append(word)
 
-sorted_words = list()
 for i in range(1,51):
     if len_words.get(i, False):
         len_words[i].sort()
         for word in len_words[i]:
-            sorted_words.append(word)
-
-print('\n'.join(map(str, sorted_words)))
+            print(word)
