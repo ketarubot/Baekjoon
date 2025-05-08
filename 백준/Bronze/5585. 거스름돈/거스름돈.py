@@ -1,0 +1,22 @@
+need = int(input())
+remain = 1000 - need
+count = 0
+if remain >= 500:
+    count += remain // 500
+    remain %= 500
+if remain >= 100:
+    count += remain // 100
+    remain %= 100
+if remain >= 50:
+    count += remain // 50
+    remain %= 50
+if remain >= 10:
+    count += remain // 10
+    remain %= 10
+if remain >= 5:
+    count += remain // 5
+    remain %= 5
+if remain >= 1:
+    count += remain // 1
+    remain %= 1
+print(count)
