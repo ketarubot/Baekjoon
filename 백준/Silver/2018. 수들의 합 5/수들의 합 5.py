@@ -1,14 +1,7 @@
 n = int(input())
-start = 1
-end = 1
 count = 0
-while start <= end:
-    sum = (end*(end+1) - (start-1)*start) // 2
-    if sum < n: end += 1
-    elif sum > n:
-        start += 1
-        end = start
-    else:
+for i in range(1, n+1):
+    x = n - ((i*(i-1))//2)
+    if x%i == 0 and x > 0:
         count += 1
-        start += 1
 print(count)
