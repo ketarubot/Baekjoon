@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define MAX 10000
-
 int compare(const void *a, const void *b) {
     return *(int*)a - *(int*)b;
 }
