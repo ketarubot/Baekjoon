@@ -38,5 +38,4 @@ int main(void) {
         if (a == -1 && b == -1 && c == -1) break;
         printf("w(%d, %d, %d) = %d\n", a, b, c, w(a, b, c));
     }
-    return 0;
 }
