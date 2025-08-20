@@ -1,8 +1,5 @@
 #include <stdio.h>
-#include <string.h>
 #include <stdlib.h>
-
-typedef char* string;
 
 int main() {
     int n;
@@ -11,24 +8,23 @@ int main() {
     int m;
     scanf("%d", &m);
 
-    const int p_len = n*2+1;
-    string p = malloc(sizeof(char) * (p_len+1));
-    for (int i = 0; i < p_len; i++) {
-        p[i] = i%2?'O':'I';
-    }
-    p[p_len] = '\0';
-
-    string s = malloc(sizeof(char) * (m+1));
+    char* s = malloc(sizeof(char) * (m+1));
     scanf("%s", s);
 
-    int p_count = 0;
-    for (int i = 0; i < m-p_len+1; i++) {
-        string temp = malloc(sizeof(char) * (p_len+1));
-        strncpy(temp, s+i, p_len);
-        if (strcmp(temp, p) == 0) p_count++;
-        free(temp);
+    int count = 0;
+
+    int i = 0;
+    while (i < m - 1) {
+        int cnt = 0;
+        while (i < m - 2 && s[i] == 'I' && s[i+1] == 'O' && s[i+2] == 'I') {
+            cnt++;
+            i += 2;
+        }
+        if (cnt >= n) {
+            count += cnt - n + 1;
+        }
+        i++;
     }
-    printf("%d\n", p_count);
-    free(p);
+    printf("%d\n", count);
     free(s);
 }
