@@ -10,9 +10,11 @@ for i in range(1, n+1):
     np[i] = name
     pn[name] = i
 
+output = []
 for _ in range(m):
     q = input().strip()
     if q.isalpha():
-        print(pn[q])
+        output.append(pn[q])
     else:
-        print(np[int(q)])
+        output.append(np[int(q)])
+print('\n'.join(map(str, output)))
