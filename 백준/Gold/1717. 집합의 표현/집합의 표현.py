@@ -1,6 +1,9 @@
 import sys
 input = sys.stdin.readline
 
+n, m = map(int, input().split())
+parent = [-1] * (n+1)
+
 def find(x: int) -> int:
     root = x
     while parent[root] >= 0:
@@ -20,9 +23,6 @@ def union(a: int, b: int) -> None:
     else:
         parent[b_root] += parent[a_root]
         parent[a_root] = b_root
-
-n, m = map(int, input().split())
-parent = [-1] * (n+1)
 
 output = []
 for _ in range(m):
